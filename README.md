@@ -4,21 +4,21 @@ Flutter Smart Home Project With ESP32
 
 ## Getting Started
 
-change `ESP32IP` to your esp32 ip
+Inside  `lib/controller/home_controller.dart` change variable `espIP` to your esp32 ip
 
-## Feature
+> [!NOTE]
+>## Feature
+>- Turn on/off led
+>- Detect Temperature/Humidity
+>- Detect Distance or object
 
-- Turn on/off led
-- Detect Temperature/Humidity
-- Detect Distance or object
-
-## IOT Hardware
-
-- ESP32
-- sensor DHT11
-- sensor Ultrasonic
-- Buzzer Speaker
-- LED 5mm
-- resistor
-- jumper wire
-- oled (optional)
+> [!IMPORTANT]
+>## IOT Hardware
+>- ESP32
+>- sensor DHT11
+>- sensor Ultrasonic
+>- Buzzer Speaker
+>- LED 5mm
+>- resistor
+>- jumper wire
+>- oled (optional)
