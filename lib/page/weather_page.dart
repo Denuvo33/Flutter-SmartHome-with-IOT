@@ -22,7 +22,7 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   void initState() {
     super.initState();
-    Timer.periodic(Duration(seconds: 1), (Timer t) {
+    Timer.periodic(Duration(seconds: 2), (Timer t) {
       if (!mounted) {
         t.cancel();
       } else {
@@ -33,16 +33,20 @@ class _WeatherPageState extends State<WeatherPage> {
 
   Future<void> getData() async {
     final response = await http.get(Uri.parse('http://$espIP/dht'));
-    if (response.statusCode == 200) {
-      final result = jsonDecode(response.body);
-      debugPrint('get Data');
-      if (!context.mounted) return;
-      setState(() {
-        temp = result['temp'].toString();
-        hum = result['hum'].toString();
-      });
-    } else {
-      debugPrint(response.body);
+    try {
+      if (response.statusCode == 200) {
+        final result = jsonDecode(response.body);
+        debugPrint('get Data');
+        if (!context.mounted) return;
+        setState(() {
+          temp = result['temp'].toString();
+          hum = result['hum'].toString();
+        });
+      } else {
+        debugPrint(response.body);
+      }
+    } on Exception catch (e) {
+      print('error is $e');
     }
   }
 

@@ -16,6 +16,7 @@ class _SecurityPageState extends State<SecurityPage> {
   var range = 0;
   var alarm = false;
   var espIP = Get.find<HomeController>().espIP;
+  var controller = Get.find<HomeController>();
   @override
   void initState() {
     // TODO: implement initState
@@ -68,6 +69,7 @@ class _SecurityPageState extends State<SecurityPage> {
                   value: alarm,
                   onChanged: (value) {
                     alarm = value;
+                    controller.alarmAction();
                     setState(() {});
                   }),
             ),
